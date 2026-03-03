@@ -1,0 +1,5 @@
+{
+  "name": "Remix: DevChat AI",
+  "description": "An AI-powered chatbot for developers with code generation, preview, image analysis, and video generation capabilities.",
+  "requestFramePermissions": []
+}
