@@ -3,38 +3,46 @@ import type { NextApiRequest, NextApiResponse } from "next";
 type Data = {
   result?: string;
   error?: string;
+  readiness?: "ready" | "fallback";
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+function safeBody(input: unknown): { prompt: string; selection: string; moduleName: string; context: string[] } {
+  const value = typeof input === "object" && input !== null ? (input as Record<string, unknown>) : {};
+  return {
+    prompt: typeof value.prompt === "string" ? value.prompt : "",
+    selection: typeof value.selection === "string" ? value.selection : "none",
+    moduleName: typeof value.moduleName === "string" ? value.moduleName : "Workspace",
+    context: Array.isArray(value.context) ? value.context.filter((item): item is string => typeof item === "string") : []
+  };
+}
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Method not allowed" });
     return;
   }
 
   try {
-    const body = (typeof req.body === "object" && req.body !== null ? req.body : {}) as {
-      prompt?: unknown;
-      selected?: unknown;
-      moduleName?: unknown;
-    };
-
-    const prompt = typeof body.prompt === "string" ? body.prompt : "";
-    const selected = typeof body.selected === "string" ? body.selected : "none";
-    const moduleName = typeof body.moduleName === "string" ? body.moduleName : "Workspace";
-
+    const { prompt, selection, moduleName, context } = safeBody(req.body);
     if (!prompt.trim()) {
       res.status(400).json({ error: "Prompt is required." });
       return;
     }
 
-    const apiKeyPresent = Boolean(process.env.OPENAI_API_KEY);
+    const hasApiKey = Boolean(process.env.OPENAI_API_KEY);
+    if (!hasApiKey) {
+      res.status(200).json({
+        readiness: "fallback",
+        result: `Fallback mode: OPENAI_API_KEY missing. Module=${moduleName}; Selection=${selection}; Context=${context.join(", ") || "none"}. Suggested next action: open Summary + Reader split and capture findings.`
+      });
+      return;
+    }
 
-    const result = apiKeyPresent
-      ? `AI route ready. Module: ${moduleName}. Selected: ${selected}. Suggested action: summarize selected context and open a Summary panel.`
-      : `Missing OPENAI_API_KEY. Fallback mode active. Module: ${moduleName}. Selected: ${selected}. Suggested next step: configure env and retry.`;
-
-    res.status(200).json({ result });
+    res.status(200).json({
+      readiness: "ready",
+      result: `AI route ready. Module=${moduleName}; Selection=${selection}. Suggested flow: route selected sources through Forge, then generate Docs + Slides updates and commit to history.`
+    });
   } catch {
-    res.status(500).json({ error: "Safe handler failure." });
+    res.status(500).json({ error: "Safe AI handler failure." });
   }
 }
