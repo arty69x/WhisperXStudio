@@ -1,0 +1,644 @@
+TASK TITLE:
+WhisperXStudio v.final — complete full-system rebuild, full production, full polish, full interactive canvas workspace
+
+MODE:
+FULL PROJECT / FULL REBUILD / FULL PRODUCTION / FULL POLISH / MERGE SYSTEMS / MULTI-FILE / CANVAS-FIRST / EXECUTE / NO PLACEHOLDERS / DO NOT ASK QUESTIONS
+
+REPOSITORY TARGET:
+arty69x/WhisperXStudio
+
+PRIMARY DIRECTIVE
+Rebuild the repository into a complete, production-grade system named WhisperXStudio.
+
+Do not make a demo.
+Do not make a mockup.
+Do not make a CRUD admin panel.
+Do not make a generic dashboard.
+Do not make disconnected pages.
+Do not make a text-input-heavy toolset.
+Do not ask clarifying questions unless absolutely unavoidable for a blocker that cannot be resolved from the repository and current task context.
+
+You must make reasonable product decisions and fully complete the system.
+
+WhisperXStudio must become a real daily-use visual studio platform:
+- canvas-first
+- module-connected
+- archive-aware
+- source-aware
+- reader-driven
+- transformation-capable
+- AI-assisted
+- production-safe
+- mobile-first
+- visually polished
+- fully usable
+
+CORE PRODUCT IDENTITY
+WhisperXStudio is one operating system.
+It is not a collection of tools.
+It is not a set of pages.
+It is one visual workspace platform where all primary work happens inside a shared interactive canvas system.
+
+All major capabilities must be operable through the same shared app shell:
+- open
+- inspect
+- compare
+- arrange
+- transform
+- summarize
+- connect
+- export
+- persist
+- restore
+
+NON-NEGOTIABLE STACK
+- Next.js Pages Router only
+- TypeScript strict
+- Tailwind CSS v4 only
+- styles/globals.css must contain exactly: @import "tailwindcss";
+- Use @tailwindcss/postcss
+- next-env.d.ts must exist
+- ESLint must be configured
+- package.json scripts must include:
+  - dev
+  - build
+  - start
+  - lint
+  - type-check
+
+NON-NEGOTIABLE UI RULES
+- Mobile-first design
+- Use layout hierarchy everywhere:
+  main > section > div.container.mx-auto.px-4
+- Responsive system: sm / md / lg only unless truly required
+- Premium visual hierarchy
+- Clean spacing rhythm
+- Strong readability
+- Refined motion
+- Docked panels, inspectors, previews, overlays, split views, and contextual actions
+- No generic admin look
+- No boring table-first UX
+- No repetitive cards with meaningless buttons
+- No title/body form pages pretending to be full modules
+
+NON-NEGOTIABLE ENGINEERING RULES
+- Guard loading states
+- Guard empty states
+- Guard error states
+- Prevent null/undefined access everywhere
+- Validate arrays before map
+- Wrap async logic in try/catch
+- Wrap JSON parsing in try/catch
+- Never expose secrets on client
+- All provider/API work must go through server routes
+- Use safe fallbacks for persistence and parsing failures
+- No hidden compile errors
+- No unstable runtime paths
+- No dead code as active runtime
+
+DO NOT
+- Do not leave TODOs
+- Do not leave placeholders
+- Do not leave fake buttons
+- Do not leave dead routes
+- Do not leave incomplete modules
+- Do not leave duplicate active runtimes
+- Do not keep conflicting implementations active at the same time
+- Do not build modules as boring CRUD managers
+- Do not depend on raw legacy files only
+- Do not ask questions when a reasonable implementation decision can be made
+
+SYSTEM-WIDE PRODUCT OUTCOME
+Build WhisperXStudio with these connected modules:
+- Overview
+- Workspace
+- Forge
+- Vault
+- Archive
+- Reader
+- Summary
+- History
+- Readiness
+- Docs
+- Slides
+- Topology
+- AI
+- Contacts
+- Budget
+
+GLOBAL ARCHITECTURE REQUIREMENT
+Create one coherent architecture with:
+- one app shell
+- one shared navigation system
+- one shared canvas engine
+- one shared inspector system
+- one shared dock / panel model
+- one shared state/store
+- one shared persistence strategy
+- one shared archive + reader layer
+- one shared normalized file model
+- one shared AI service layer
+- one shared action/event history layer
+- one shared visual design language
+
+CANVAS-FIRST REQUIREMENT
+The system must revolve around a shared editable canvas engine.
+
+The canvas engine must support:
+- pan
+- zoom
+- fit-to-view
+- drag
+- resize
+- selection
+- multi-select
+- z-order
+- group
+- ungroup
+- pin
+- lock
+- collapse
+- expand
+- fullscreen
+- split mode
+- open in focused mode
+- inspector binding
+- contextual actions
+- panel stacking
+- persistence of layout state
+- restoring saved layout states
+- mobile-safe focus behavior
+- keyboard shortcuts where practical
+- smooth transitions and feedback
+
+SYSTEM-WIDE CANVAS RULE
+Every major module must expose at least one meaningful editable canvas representation.
+If a module is not meaningful on canvas, redesign the module until it is.
+The canvas is the primary operating model of WhisperXStudio.
+
+CANVAS ENTITY MODEL
+Create a shared canvas item model that supports multiple types such as:
+- doc
+- slide
+- deck
+- topology
+- topology-node
+- archive-record
+- reader-panel
+- summary-panel
+- history-timeline
+- readiness-panel
+- ai-chat-panel
+- ai-task-panel
+- forge-blueprint
+- forge-matrix
+- forge-result
+- vault-preview
+- contact-panel
+- budget-panel
+- code-preview
+- markdown-preview
+- media-preview
+- pdf-preview
+- file-preview
+- system-note
+- comparison-panel
+
+Each canvas entity must support:
+- id
+- type
+- title
+- subtitle
+- linked source ids
+- x
+- y
+- width
+- height
+- zIndex
+- minimized
+- pinned
+- locked
+- visualMode
+- payload
+- createdAt
+- updatedAt
+
+INSPECTOR SYSTEM
+Create a shared contextual inspector.
+When any canvas entity is selected, the inspector must show:
+- metadata
+- linked records
+- module-specific controls
+- display mode controls
+- quick actions
+- duplicate
+- pin
+- lock
+- fullscreen
+- remove from layout
+- open source
+- relation graph
+- export actions where relevant
+- state details where relevant
+
+The inspector must not be a generic form dump.
+It must be structured, contextual, and useful.
+
+LEGACY PRESERVATION REQUIREMENT
+Preserve every legacy file in two layers:
+1. raw file layer
+2. embedded application data layer
+
+For every legacy file create an embedded record with:
+- id
+- name
+- title
+- ext
+- mime
+- size
+- tags
+- source category
+- origin
+- summary
+- searchable text content when available
+- parsed text when available
+- base64 fallback for binary when needed
+- raw path reference
+- createdAt
+- updatedAt
+
+If raw legacy files are missing later, the system must still be able to:
+- list them
+- search them
+- open metadata
+- open embedded content
+- preview where possible
+- route them into workflows
+- open them on canvas
+- open them in Reader
+- open them in Archive
+- download from fallback when possible
+
+SOURCE OF TRUTH MIGRATION RULE
+Use all useful existing systems in the repository as migration input.
+Choose the strongest working implementation for each concern as the active runtime.
+Migrate valid logic forward.
+Keep older versions in legacy/archive references.
+Do not keep multiple competing active runtimes for the same responsibility.
+
+NORMALIZED INGESTION REQUIREMENT
+Build a shared normalized file ingestion pipeline used by Forge, Vault, Archive, Reader, and AI context.
+
+Supported file kinds:
+- text
+- image
+- pdf
+- office document
+- archive
+- generic binary
+
+Normalized record must support:
+- id
+- name
+- ext
+- mime
+- size
+- kind
+- renderType
+- text when available
+- base64 when needed
+- arrayBuffer when needed
+- object/preview URL when possible
+- summary
+- analysis
+- downstream routing hints
+- source references
+- preview capability flags
+
+Do not treat all non-images as text.
+Use binary-safe handling for pdf, office, archives, and binary.
+Create graceful preview fallback rules.
+
+OVERVIEW MODULE
+Overview must be a live visual operating surface, not a boring dashboard.
+It must show:
+- current workspace state
+- active modules
+- archive health
+- recent imports
+- recent transformations
+- readiness signals
+- AI state
+- source coverage
+- recent history stream
+- quick-launch actions into canvas
+- pinned contexts
+- workspace presets
+
+Use visual signals, zoning, summaries, and action-oriented surfaces.
+
+WORKSPACE MODULE
+Workspace is the main operating surface of the whole system.
+It must allow:
+- opening multiple modules at once
+- comparing archive content with docs/slides
+- opening Reader next to AI
+- opening Forge next to source materials
+- opening Summary next to Archive
+- opening Budget and Contacts as support panels
+- pinning important panels
+- saving workspace presets
+- restoring workspace presets
+- quick switching between preset layouts
+- recent items rail
+- active selection context
+- system inspector
+- cross-module actions
+
+Workspace must feel like a real mission-control studio.
+
+FORGE MODULE
+Forge must be a full visual transformation engine.
+It must support:
+- selecting blueprint
+- selecting matrix
+- selecting ability
+- validating preconditions
+- showing source previews
+- showing transformation status
+- showing evolved output
+- showing migration notes
+- showing breaking changes
+- exporting output
+- copying output safely
+- visual source/result relationship
+- use of normalized legacy assets
+- opening sources and outputs on canvas
+- terminal-style explanation surface
+
+Forge must feel like a fusion system, not a form.
+
+VAULT MODULE
+Vault must support:
+- file import
+- file grouping
+- file search
+- filter by kind
+- sorting
+- metadata display
+- preview display
+- delete/remove
+- safe fallback for unsupported previews
+- open to canvas
+- open to reader
+- send to forge
+- send to summary
+- send to docs/slides pipelines
+
+Vault must be visual and fast, not a dumb table.
+
+ARCHIVE MODULE
+Archive must support:
+- list all embedded legacy records
+- search by filename
+- search by tags
+- search by summary
+- search by embedded content
+- open raw
+- open embedded
+- fallback when raw missing
+- compare records
+- open to canvas
+- open to reader
+- open related source panels
+- relation graph or lineage hints
+- dense metadata view
+- preview rail
+
+Archive must be a true archive explorer, not a folder list.
+
+READER MODULE
+Reader must be a serious reading workstation.
+It must support:
+- text preview
+- code preview
+- markdown preview
+- pdf preview where practical
+- metadata view for unsupported binary
+- embedded content reading
+- source context
+- search in readable content
+- structure or outline navigation
+- split view
+- comparison view
+- open beside AI
+- open beside Summary
+- smooth unsupported-file fallback
+
+SUMMARY MODULE
+Summary must use real embedded records and live module state.
+It must support:
+- repository/system summary
+- archive summary
+- file summary
+- grouped summary
+- cross-file summary
+- actionable insights
+- suggested next actions
+- source-aware reasoning surfaces
+- open summary panels onto canvas
+- selected-context summary
+
+Do not use filler content.
+
+HISTORY MODULE
+History must track meaningful actions such as:
+- imports
+- removals
+- forge runs
+- workspace layout changes
+- document changes
+- slide changes
+- archive actions
+- AI actions
+- persistence events where practical
+- module state changes where relevant
+
+Render as an interactive event stream or timeline, not a plain log.
+
+READINESS MODULE
+Readiness must evaluate actual system state and show:
+- route readiness
+- archive integrity
+- embedded source coverage
+- missing env issues
+- AI route readiness
+- persistence readiness
+- module completeness checks
+- current blockers
+- recommended next fixes
+
+Render as a launch/readiness inspector, not fake status cards.
+
+DOCS MODULE
+Docs must be a real visual document workspace.
+It must support:
+- document list
+- document creation
+- document editing
+- document reading
+- structure/outline rail
+- live preview or dual mode
+- metadata panel
+- source linking from archive/reader/forge
+- canvas-openable docs
+- archive-to-doc transformation flows
+- persistent document state
+- real useful editor interactions
+
+Do not reduce Docs to title/body forms.
+
+SLIDES MODULE
+Slides must be a real visual slide workspace.
+It must support:
+- deck list
+- deck creation
+- deck editing
+- slide strip
+- slide canvas
+- slide inspector
+- add/remove/reorder slides
+- source-to-slide mapping
+- docs/archive-to-slides transformation flow
+- export-ready deck model
+- persistent deck state
+- canvas-openable slide/deck panels
+
+Do not reduce Slides to title/body forms.
+
+TOPOLOGY MODULE
+Use the strongest existing topology/system-map logic from legacy sources and finish it fully.
+It must support:
+- topology canvas
+- node interaction
+- edge relation display
+- zoom/pan
+- search/filter
+- node inspector
+- overlays
+- stable rendering
+- relation to archive/reader where relevant
+- open related source records
+- canvas-based exploration
+
+AI MODULE
+AI must:
+- use server routes only
+- never expose secrets client-side
+- support chat assistance
+- support task assistance
+- use selected canvas/archive/docs/forge context
+- summarize current selection
+- propose transformations from context
+- handle JSON safely
+- show missing-env fallback UI
+- open as canvas panels
+- support contextual prompts from the current workspace
+
+CONTACTS MODULE
+Contacts must not be a generic CRUD page.
+It must be a visual working module.
+Support:
+- contact cards
+- grouping
+- filtering
+- search
+- detail inspector
+- relation visualization where practical
+- minimal edit support only when necessary
+- open contacts on canvas
+- quick actions
+
+BUDGET MODULE
+Budget must not be a generic CRUD spreadsheet page.
+It must be a visual working module.
+Support:
+- grouped breakdowns
+- totals
+- scenario cards
+- category visualizations
+- status indicators
+- detail inspector
+- minimal edit support only when necessary
+- open budget surfaces on canvas
+- useful summary analysis
+
+PERSISTENCE REQUIREMENT
+Use a shared persistence model.
+Persist safely:
+- workspace layout state
+- canvas entities
+- pinned items
+- workspace presets
+- embedded legacy records
+- docs
+- slides
+- contacts
+- budget
+- history entries where practical
+- recent actions
+Guard all persistence reads/writes with try/catch and safe defaults.
+
+MOBILE REQUIREMENT
+Canvas must still work on mobile.
+Do not simply shrink desktop.
+Implement mobile-safe behavior:
+- fullscreen focus mode
+- stacked panel behavior
+- bottom-sheet inspector
+- compact toolbar
+- safe touch gestures
+- one-active-focus mode for dense workflows
+- responsive layout restoration
+
+VISUALIZATION PRIORITY ORDER
+When implementing features, always prefer:
+1. canvas interaction
+2. inspector-driven editing
+3. visual panels and previews
+4. drag/resize/select/link/group behavior
+5. contextual toolbars
+6. split view / compare view
+7. structured compact editing
+8. traditional form inputs only as a last resort
+
+MODULE EXECUTION RULE
+No module may remain a static shell.
+Every module must have:
+- real interactions
+- real state behavior
+- real usefulness
+- real relation to the rest of the system
+- real presence inside the shared canvas workspace
+
+FAIL CONDITION
+If the result resembles a generic dashboard, CRUD admin, disconnected productivity template, or static multi-page shell, the task is failed and must be corrected before finishing.
+
+MANDATORY COMMANDS
+Run and fix until all pass:
+- npm install
+- npm run lint
+- npm run type-check
+- npm run build
+
+IF ANYTHING IS MISSING
+Create all missing configuration, scripts, utilities, components, data models, store files, routes, API routes, and styles required to make the project fully production-ready.
+
+FINAL RESPONSE FORMAT
+Return only:
+1. short summary of what was completed
+2. files created/modified
+3. commands executed with results
+4. remaining limitations only if truly unavoidable
+
+EXECUTE NOW
