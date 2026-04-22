@@ -1,5 +1,5 @@
 {
-  "name": "whisperx-studio-omega",
+  "name": "whisperxstudio",
   "workspaces": ["frontend", "backend"], 
   "scripts": {
     "dev-frontend": "npm run dev --prefix frontend",
